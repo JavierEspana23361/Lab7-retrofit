@@ -9,16 +9,16 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.laboratorio7_retrofit.navigation.AppBar
-import com.example.laboratorio7_retrofit.ui.mealdetail.viewModel.MealDetailViewModel
+import com.example.lab7_retrofit.navigation.AppBar
+import com.example.lab7_retrofit.ui.mealdetail.viewmodel.mealdetailViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MealsDetailScreen(navController: NavController, mealId: String) {
-    val viewModel: MealDetailViewModel = viewModel()
+    val viewModel: mealdetailViewModel = viewModel()
 
     LaunchedEffect(Unit) {
-        viewModel.loadMealDetail(mealId) // Usa mealId desde navigation
+        viewModel.lmealdetail(mealId)
     }
 
     val mealDetail = viewModel.mealDetail.value

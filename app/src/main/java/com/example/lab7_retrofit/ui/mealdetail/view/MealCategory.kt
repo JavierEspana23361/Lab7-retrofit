@@ -18,10 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.laboratorio7_retrofit.networking.response.mealdetail.MealDetail
+import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 
 @Composable
-fun MealCategory(meal: MealDetail, navController: NavController){
+fun MealCategory(meal: mealdetail, navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize()

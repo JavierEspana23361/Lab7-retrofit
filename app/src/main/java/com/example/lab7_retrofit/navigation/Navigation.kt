@@ -1,42 +1,46 @@
 package com.example.lab7_retrofit.navigation
 
-import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import com.example.lab7_retrofit.ui.categories.view.categoriesScreen
-import com.example.lab7_retrofit.ui.mealdetail.view.mealdetailScreen
-import com.example.lab7_retrofit.ui.meals.view.mealsScreen
-import com.example.lab7_retrofit.navigation.NavigationState
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-
-
-
-
+import com.example.lab7_retrofit.ui.categories.view.MealsCategoriesScreen
+import com.example.lab7_retrofit.ui.mealdetail.view.MealsDetailScreen
+import com.example.lab7_retrofit.ui.meals.view.MealsFilterScreen
 
 @Composable
 fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) {
-    NavHost(navController = navController,
-        startDestination = NavigationState.categories.route,
-        modifier = modifier) {
-
-        composable(route = NavigationState.categories.route) {
-            categoriesScreen(navController = navController)
+    NavHost(
+        navController = navController,
+        startDestination = NavigationState.MealsCategories.route,
+        modifier = modifier
+    ) {
+        // MealCategoriesScreen
+        composable(route = NavigationState.MealsCategories.route) {
+            MealsCategoriesScreen(navController = navController)
         }
-
-        composable(route = NavigationState.mealdetail.route) {
-            mealdetailScreen(navController = navController)
+        // MealFilterScreen
+        composable(
+            route = NavigationState.MealsRecipesList.route,
+            arguments = listOf(navArgument("category") {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val categoryName = backStackEntry.arguments?.getString("category") ?: ""
+            MealsFilterScreen(navController = navController, category = categoryName)
         }
-
-        composable(route = NavigationState.meals.route) {
-            mealsScreen(navController = navController)
+        // MealDetailScreen
+        composable(
+            route = NavigationState.MealDetail.route,
+            arguments = listOf(navArgument("mealId") {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val mealId = backStackEntry.arguments?.getString("mealId") ?: ""
+            MealsDetailScreen(navController = navController, mealId = mealId)
         }
-
-
     }
 }

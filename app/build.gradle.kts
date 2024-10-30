@@ -50,51 +50,52 @@ android {
 }
 
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    implementation(libs.androidx.lifecycle.livedata.ktx.v240)
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.androidx.runtime.livedata)
     val nav_version = "2.8.2"
     // Jetpack Compose integration
-    implementation("androidx.navigation:navigation-compose:2.4.0")
+    implementation(libs.androidx.navigation.compose.v240)
 
     // Views/Fragments integration
-    implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
+    implementation(libs.androidx.navigation.fragment.ktx.v240)
+    implementation(libs.androidx.navigation.ui.ktx.v240)
 
     // Feature module support for Fragments
-    implementation("androidx.navigation:navigation-dynamic-features-fragment:2.4.0")
+    implementation(libs.androidx.navigation.dynamic.features.fragment)
 
     // Testing Navigation
-    androidTestImplementation("androidx.navigation:navigation-testing:2.4.0")
+    androidTestImplementation(libs.androidx.navigation.testing)
 
     // Room Database
     val room_version = "2.6.1"
-    implementation("androidx.room:room-runtime:2.4.0")
-    annotationProcessor("androidx.room:room-compiler:2.4.0")
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
     // optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:2.4.0")
-    implementation("io.coil-kt:coil-compose:1.4.0")
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.coil.compose.v140)
 
     // RETROFIT
-    implementation("com.google.code.gson:gson:2.8.8")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.gson)
+    implementation(libs.retrofit.v290)
+    implementation(libs.retrofit2.converter.gson)
 
 
-    implementation("io.coil-kt:coil-compose:1.4.0")
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    implementation(platform("androidx.compose:compose-bom:2021.11.0"))
-    implementation("androidx.compose.ui:ui:1.0.5")
-    implementation("androidx.compose.ui:ui-graphics:1.0.5")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.0.5")
-    implementation("com.google.android.material:material:1.4.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2021.11.0"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.0.5")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.0.5")
+    implementation(libs.coil.kt.coil.compose)
+    implementation(libs.androidx.core.ktx.v170)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.material.v140)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v113)
+    androidTestImplementation(libs.androidx.espresso.core.v340)
+    androidTestImplementation(platform(libs.androidx.compose.bom.v2021110))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }

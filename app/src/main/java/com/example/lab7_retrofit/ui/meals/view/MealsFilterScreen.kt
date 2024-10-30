@@ -30,23 +30,22 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
-import com.eventapp.mealswithroom.R
-import com.eventapp.mealswithroom.networking.response.meals.Meal
-import com.eventapp.mealswithroom.ui.categories.view.MealsCategoriesScreen
-import com.eventapp.mealswithroom.ui.meals.viewmodel.MealsViewModel
-import com.eventapp.mealswithroom.navigation.AppBar
-import com.eventapp.mealswithroom.ui.theme.MealsWithRoomTheme
+import com.example.lab7_retrofit.R
+import com.example.lab7_retrofit.networking.response.meals.meals
+import com.example.lab7_retrofit.ui.categories.view.MealCategory
+import com.example.lab7_retrofit.ui.meals.viewmodel.mealsViewModel
+import com.example.lab7_retrofit.navigation.AppBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MealsFilterScreen(navController: NavController, category: String) {
     Log.d("ARGUMENTS", category)
 
-    val viewModel: MealsViewModel = viewModel()
+    val viewModel: mealsViewModel = viewModel()
     val mealFilter by viewModel.meals.observeAsState(null)
 
     LaunchedEffect(Unit) {
-        viewModel.fetchByCategory(category)
+        viewModel.fcategory(category)
     }
 
     Scaffold(topBar = {

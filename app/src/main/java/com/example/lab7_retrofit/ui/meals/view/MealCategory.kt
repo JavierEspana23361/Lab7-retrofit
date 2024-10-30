@@ -41,7 +41,7 @@ fun MealCategory(meal: meals) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.recepies_name),
+                    text = meal.id,
                     style = MaterialTheme.typography.titleSmall
                 )
                 Text(
