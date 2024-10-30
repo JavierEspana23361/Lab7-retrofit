@@ -1,13 +1,13 @@
-package com.example.lab7_retrofit.ui.mealdetail.Repository
+package com.example.lab7_retrofit.ui.mealdetail.repository
 
 import com.example.lab7_retrofit.networking.MealsWebService
-import com.example.lab7_retrofit.networking.response.mealdetail.MealDetailResponse
+import com.example.lab7_retrofit.networking.response.mealdetail.mealdetailResponse
 import retrofit2.Call
 
 
-class MealDetailRepository(private val webService: MealsWebService = MealsWebService()) {
+class mealdetailRepository(private val webService: MealsWebService = MealsWebService()) {
 
-    suspend fun getMealDetail(mealId: String): Call<MealDetailResponse> {
-        return webService.getMealDetail(mealId)
+    suspend fun getmealdetail(mealId: String): Call<mealdetailResponse> {
+        return webService.getmealdetail(mealId)
     }
 }

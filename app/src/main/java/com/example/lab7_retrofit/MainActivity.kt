@@ -14,9 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.example.lab7_retrofit.ui.theme.Lab7retrofitTheme
 import com.example.lab7_retrofit.navigation.AppBar
 import com.example.lab7_retrofit.navigation.Navigation
+import com.example.lab7_retrofit.navigation.NavigationState
+import com.example.lab7_retrofit.ui.theme.Lab7Theme
+
+
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -24,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Lab7retrofitTheme {
+            Lab7Theme {
                 Navigation(navController = rememberNavController())
             }
         }

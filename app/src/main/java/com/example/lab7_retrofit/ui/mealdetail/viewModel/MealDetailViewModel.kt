@@ -1,46 +1,45 @@
-package com.example.lab7_retrofit.ui.mealdetail.viewModel
+package com.example.lab7_retrofit.ui.mealdetail.viewmodel
 
 import android.util.Log
-import android.view.WindowInsetsAnimation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lab7_retrofit.networking.response.mealdetail.MealDetail
-import com.example.lab7_retrofit.networking.response.mealdetail.MealDetailResponse
-import com.example.lab7_retrofit.ui.mealdetail.Repository.MealDetailRepository
+import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
+import com.example.lab7_retrofit.networking.response.mealdetail.mealdetailResponse
+import com.example.lab7_retrofit.ui.mealdetail.repository.mealdetailRepository
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MealDetailViewModel(private val repository: MealDetailRepository = MealDetailRepository()) : ViewModel() {
+class mealdetailViewModel(private val repository: mealdetailRepository = mealdetailRepository()) : ViewModel() {
 
-    private val _mealDetail = MutableLiveData<MealDetail>()
-    val mealDetail: LiveData<MealDetail> = _mealDetail
+    private val _mealDetail = MutableLiveData<mealdetail>()
+    val mealDetail: LiveData<mealdetail> = _mealDetail
 
-    fun loadMealDetail(mealId: String) {
+    fun lmealdetail(mealId: String) {
         viewModelScope.launch {
             try {
-                // llamada del repositorio
-                val response = repository.getMealDetail(mealId)
+                val response = repository.getmealdetail(mealId)
 
-                response.enqueue(object : WindowInsetsAnimation.Callback<MealDetailResponse> {
+                response.enqueue(object : Callback<mealdetailResponse> {
                     override fun onResponse(
-                        call: Call<MealDetailResponse>,
-                        response: Response<MealDetailResponse>
+                        call: Call<mealdetailResponse>,
+                        response: Response<mealdetailResponse>
                     ) {
                         if (response.isSuccessful) {
-                            // obtener MealDetail del response
-                            _mealDetail.value = response.body()?.meals?.firstOrNull() // en el caso de que este vacio 
+                            _mealDetail.value = response.body()?.meals?.firstOrNull()
                         } else {
                             Log.e("MealDetailViewModel", "Error: ${response.errorBody()?.string()}")
                         }
                     }
-                    override fun onFailure(call: Call<MealDetailResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<mealdetailResponse>, t: Throwable) {
                         Log.e("MealDetailViewModel", t.message.toString())
                     }
-                })
+                }
+                )
+
             } catch (e: Exception) {
                 Log.e("MealDetailViewModel", e.message.toString())
             }

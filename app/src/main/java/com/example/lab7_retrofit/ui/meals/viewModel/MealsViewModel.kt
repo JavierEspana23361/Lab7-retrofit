@@ -1,27 +1,34 @@
-package com.example.lab7_retrofit.ui.meals.viewModel
-
+package com.example.lab7_retrofit.ui.meals.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lab7_retrofit.networking.response.meals.Meal
-import com.example.lab7_retrofit.ui.meals.Respository.MealsRepository
+import com.example.lab7_retrofit.networking.MealsWebService
+import com.example.lab7_retrofit.networking.response.meals.meals
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.lang.Exception
+import java.net.ConnectException
+import androidx.navigation.NavHostController
+import com.example.lab7_retrofit.ui.meals.repository.mealsRepository
+import com.example.lab7_retrofit.ui.meals.view.mealsScreen
 import kotlinx.coroutines.launch
 
-class MealsViewModel (val repository: MealsRepository = MealsRepository()): ViewModel() {
+class mealsViewModel (val repository: mealsRepository = mealsRepository()): ViewModel() {
 
-    private val _meals = MutableLiveData<List<Meal>>()
-    val meals: LiveData<List<Meal>> = _meals
+    private val _meals = MutableLiveData<List<meals>>()
+    val meals: LiveData<List<meals>> = _meals
 
-    fun fetchByCategory(category: String) {
+    fun fcategory(category: String) {
         viewModelScope.launch {
             try {
-                val meals = repository.filterByCategory(category)
+                val meals = repository.filtercategory(category)
                 _meals.value = meals
             } catch (e: Exception) {
-                Log.e("MealsViewModel", e.message.toString());
+                Log.e("mealsViewModel", e.message.toString());
             }
         }
     }

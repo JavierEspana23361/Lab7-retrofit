@@ -19,7 +19,7 @@ fun AppBar(title: String, navController: NavController) {
         title = {
             Text(text = title, color = Color.White)
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor =  Color(0xFF5FA450)),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor =  Color(0xFF6650a4)),
         navigationIcon = {
             if (navController.previousBackStackEntry != null) {
                 run {
@@ -31,5 +31,6 @@ fun AppBar(title: String, navController: NavController) {
             } else {
                 null
             }
-        })
+        }
+    )
 }

@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.lab7_retrofit.networking.response.mealdetail.MealDetail
+import com.example.laboratorio7_retrofit.networking.response.mealdetail.MealDetail
 
 @Composable
 fun MealCategory(meal: MealDetail, navController: NavController){

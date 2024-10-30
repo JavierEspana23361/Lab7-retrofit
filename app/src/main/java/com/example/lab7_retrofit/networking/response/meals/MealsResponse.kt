@@ -1,3 +1,7 @@
 package com.example.lab7_retrofit.networking.response.meals
 
-data class MealsResponse(val meals: List<Meal>)
+import com.google.gson.annotations.SerializedName
+
+data class mealsResponse(
+    @SerializedName("meals") val meals: List<meals>
+)

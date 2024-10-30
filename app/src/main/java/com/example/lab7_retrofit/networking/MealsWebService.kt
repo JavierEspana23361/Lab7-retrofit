@@ -1,9 +1,9 @@
-package com.example.lab7_retrofit.networking;
+package com.example.lab7_retrofit.networking
 
-import android.telecom.Call
-import com.example.lab7_retrofit.networking.response.categories.MealsCategoriesResponse
-import com.example.lab7_retrofit.networking.response.mealdetail.MealDetailResponse
-import com.example.lab7_retrofit.networking.response.meals.MealsResponse
+import com.example.lab7_retrofit.networking.response.MealsApi
+import com.example.lab7_retrofit.networking.response.categories.categoriesResponse
+import com.example.lab7_retrofit.networking.response.mealdetail.mealdetailResponse
+import com.example.lab7_retrofit.networking.response.meals.mealsResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,16 +21,16 @@ class MealsWebService {
         api = retrofit.create(MealsApi::class.java)
     }
 
-    suspend fun getMealsCategories(): MealsCategoriesResponse {
-        return api.getMealsCategories()
+    suspend fun getcategories(): categoriesResponse {
+        return api.getcategories()
     }
 
-    suspend fun filterMealsByCategory(category: String): MealsResponse {
-        return api.filterByCategory(category)
+    suspend fun filtercategory(category: String): mealsResponse {
+        return api.filtercategories(category)
     }
 
-    fun getMealDetail(mealId: String): Call<MealDetailResponse> {
-        return api.getMealDetail(mealId)
+    fun getmealdetail(mealId: String): Call<mealdetailResponse> {
+        return api.getmealdetail(mealId)
     }
 
 }

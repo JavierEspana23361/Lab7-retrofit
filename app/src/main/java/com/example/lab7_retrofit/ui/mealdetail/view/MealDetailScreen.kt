@@ -9,8 +9,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.lab7_retrofit.navigation.AppBar
-import com.example.lab7_retrofit.ui.mealdetail.viewModel.MealDetailViewModel
+import com.example.laboratorio7_retrofit.navigation.AppBar
+import com.example.laboratorio7_retrofit.ui.mealdetail.viewModel.MealDetailViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
