@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.lab7_retrofit.R
 import com.example.lab7_retrofit.networking.response.categories.categories
 import com.example.lab7_retrofit.navigation.NavigationState
 import com.example.lab7_retrofit.navigation.navigateTo

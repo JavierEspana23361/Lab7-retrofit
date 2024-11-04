@@ -1,4 +1,4 @@
-package com.example.lab7_retrofit.ui.categories.view
+package com.example.lab7_retrofit.ui.meals.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -13,14 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.lab7_retrofit.R
 import com.example.lab7_retrofit.networking.response.meals.meals
 
 @Composable
-fun MealCategory(meal: meals) {
+fun MealCategoryC(meal: meals) {
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
